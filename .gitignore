@@ -1,0 +1,15 @@
+# Backend
+backend/node_modules/
+backend/.env
+
+# Frontend
+frontend/node_modules/
+frontend/.env
+
+# Common
+node_modules/
+.env
+dist/
+build/
+coverage/
+*.log
