@@ -24,17 +24,68 @@ function PrivateRoute({ children }) {
 
 function AppLayout({ children }) {
   return (
-    <div style={{ display: "flex", minHeight: "100vh" }}>
-      <Sidebar />
-      <main style={{ flex: 1, overflow: "auto" }}>
-        <React.Suspense fallback={
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100vh" }}>
-            <div style={{ width: 28, height: 28, border: "2px solid var(--border)", borderTopColor: "var(--accent)", borderRadius: "50%", animation: "spin 0.6s linear infinite" }} />
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+
+      {/* 🔥 FULL HEADER */}
+      <div style={{
+        height: 60,
+        background: "#0f172a",
+        display: "flex",
+        alignItems: "center"
+      }}>
+
+        {/* LEFT = Sidebar width (align perfectly) */}
+        <div style={{
+          width: 220,   // same as sidebar
+          padding: "0 16px",
+          display: "flex",
+          alignItems: "center",
+          gap: 10
+        }}>
+          <div style={{
+            width: 34,
+            height: 34,
+            background: "#000",
+            borderRadius: 8,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "white"
+          }}>
+            ₹
           </div>
-        }>
-          {children}
-        </React.Suspense>
-      </main>
+
+          <div>
+            <div style={{ color: "white", fontWeight: 700, fontSize: 14 }}>
+              BillFlow
+            </div>
+            <div style={{ color: "#cbd5e1", fontSize: 10 }}>
+              GST-Ready Billing
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT SIDE (empty for now or future search/profile) */}
+        <div style={{ flex: 1 }} />
+
+      </div>
+
+      {/* BODY */}
+      <div style={{ display: "flex", flex: 1 }}>
+
+        <Sidebar />
+
+        <main style={{
+          flex: 1,
+          background: "#f5f6f8",
+          padding: 16
+        }}>
+          <React.Suspense fallback={<div>Loading...</div>}>
+            {children}
+          </React.Suspense>
+        </main>
+
+      </div>
     </div>
   );
 }

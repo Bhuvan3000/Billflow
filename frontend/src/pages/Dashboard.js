@@ -59,7 +59,24 @@ export default function Dashboard() {
                 </defs>
                 <XAxis dataKey="month" tick={{ fontSize: 11, fill: "#64748b" }} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fontSize: 10, fill: "#64748b" }} axisLine={false} tickLine={false} tickFormatter={v => fmtShort(v)} width={60} />
-                <Tooltip formatter={v => [fmt(v), "Revenue"]} contentStyle={{ background: "#1c2333", border: "1px solid #2a3348", borderRadius: 8, fontSize: 12 }} />
+                  <Tooltip
+  formatter={v => [fmt(v), "Revenue"]}
+  contentStyle={{
+    backgroundColor: "#ffffff",
+    border: "1px solid #e5e7eb",
+    borderRadius: "8px",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+    fontSize: "12px"
+  }}
+  labelStyle={{
+    color: "#6b7280"
+  }}
+  itemStyle={{
+    color: "#111827",
+    fontWeight: 500
+  }}
+  cursor={{ stroke: "#d1d5db", strokeWidth: 1 }}
+/>
                 <Area type="monotone" dataKey="revenue" stroke="#4f8ef7" strokeWidth={2} fill="url(#grad)" />
               </AreaChart>
             </ResponsiveContainer>
